@@ -7,6 +7,11 @@ export class DynamoDBController {
 
     @Post("add")
     async addItem(@Body() item: Record<string, any>) {
-        return await this.dynamoDBService.postItem("apigov", item)
+        return await this.dynamoDBService.putItem("apigov", item)
+    }
+
+    @Get("get")
+    async getItem(@Body() item: Record<string, any>) {
+        return await this.dynamoDBService.getItem("apigov", item)
     }
 }
